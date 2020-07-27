@@ -1,0 +1,39 @@
+.Button {
+  outline: none;
+  background: #0acf83;
+  border: none;
+
+  &:hover {
+    transform: translateY(-0.1rem);
+  }
+  &:active {
+    transform: translateY(0.1rem);
+  }
+  span {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    /* identical to box height, or 137% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #ffffff;
+    padding: 0.9rem 4rem;
+  }
+}
+.Disabled,
+:disabled {
+  background: #e5e5e5;
+  cursor: not-allowed;
+  span {
+    color: #c4c4c4;
+  }
+  &:active,
+  &:hover {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,16 @@
+.App {
+  background-color: #fff;
+  width: inherit;
+  border: 1px black solid;
+  padding-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  width: 80rem;
+}
+.Options {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: inherit;
+}

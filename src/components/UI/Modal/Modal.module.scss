@@ -1,0 +1,21 @@
+.Modal {
+  background-color: #fff;
+  position: relative;
+  padding: 1.8rem 3.2rem;
+  span {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    text-align: center;
+    display: block;
+  }
+}
+
+.ModalImg {
+  position: absolute;
+  cursor: pointer;
+  top: 0.5rem;
+  right: 0.5rem;
+}
