@@ -1,0 +1,37 @@
+.ListItem {
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  border-bottom: 1px #c4c4c4 solid;
+  border-top: 1px #c4c4c4 solid;
+  &:hover {
+    background-color: rgba(170, 255, 153, 0.15);
+  }
+  span {
+    padding-left: 0.8rem;
+    display: flex;
+    align-items: center;
+  }
+}
+.Row {
+  width: 5.6rem;
+}
+.Id {
+  width: 7.8rem;
+}
+.FirstName,
+.LastName {
+  width: 13.8rem;
+}
+.Phone {
+  width: 12rem;
+}
+.Email {
+  width: 23rem;
+}
+
+.Paired {
+  background-color: #f9f9f9;
+}

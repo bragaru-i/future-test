@@ -13,7 +13,7 @@ const Input = ({
   placeholder = 'Placeholder text here...',
 }) => {
   let style = [styles.Input];
-
+  if (type === 'number') style.push(styles.Number);
   style = style.join(' ');
   return (
     <div className={style}>

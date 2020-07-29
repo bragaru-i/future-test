@@ -1,0 +1,21 @@
+.SearchForm {
+  display: flex;
+  padding: 1.2rem 1.8rem;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.Div {
+  font-size: 1.2rem;
+  text-align: justify;
+  flex-wrap: 1;
+  span {
+    cursor: pointer;
+    color: #cacaca;
+  }
+}
+
+.Active {
+  font-weight: 700;
+  color: #0b0909 !important;
+}
