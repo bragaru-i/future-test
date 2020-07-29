@@ -39,7 +39,6 @@ const Pagination = ({
 
     return res;
   };
-  console.log(getPage(currentPage, 'next', 1));
   return (
     <div className={styles.Pagination}>
       <div></div>

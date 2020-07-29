@@ -19,7 +19,6 @@ const AddNewEntry = ({ onClose }) => {
     const { name, value } = e.target;
 
     setData((prevState) => ({ ...prevState, [name]: value }));
-    console.log(data);
   };
 
   return (
