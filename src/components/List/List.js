@@ -6,7 +6,7 @@ import arrowDownIco from '../../assets/images/icons/arrow_drop_down_24px.png';
 import arrowUpIco from '../../assets/images/icons/arrow_drop_up_24px.png';
 import sortBy from '../../utils/sortBy';
 
-const List = ({ list }) => {
+const List = ({ list, setActiveEntry }) => {
   const [filterBy, setFilterBy] = React.useState({
     id: false,
     email: false,
@@ -32,7 +32,15 @@ const List = ({ list }) => {
   const listItems = list.map((item, index) => {
     let pairity = true;
     if (index % 2 === 1) pairity = false;
-    return <ListItem key={index} pairity={pairity} row={index + 1} data={item} />;
+    return (
+      <ListItem
+        doActive={setActiveEntry}
+        key={index}
+        pairity={pairity}
+        row={index + 1}
+        data={item}
+      />
+    );
   });
   return (
     <ul className={styles.List}>

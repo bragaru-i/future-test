@@ -10,10 +10,12 @@ import Select from '../../components/UI/Select/Select';
 import List from '../../components/List/List';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Pagination from '../../components/Pagination/Pagination';
+import ActiveEntry from '../../components/ActiveEntry/ActiveEntry';
 
 function App() {
   const [showAddEntry, setShowAddEntry] = useState(false);
   const [selectDB, setSelectDB] = useState('lessDB');
+  const [activeEntry, setActiveEntry] = useState(null);
   const [pagination, setPagination] = useState({
     currentPage: 1,
     postPerPage: 24,
@@ -74,7 +76,7 @@ function App() {
   let list = null;
   if (data.isLoading) list = <Loading />;
   if (!data.isLoading && !data.error && data.data)
-    list = <List list={pagination.pageData} />;
+    list = <List list={pagination.pageData} setActiveEntry={setActiveEntry} />;
   const searchHandler = (e, filterData) => {
     e.preventDefault();
 
@@ -160,6 +162,13 @@ function App() {
       ),
     }));
   };
+
+  const AddEntryToData = (entry) => {
+    setPagination((prevState) => ({
+      ...prevState,
+      pageData: [entry, ...prevState.pageData],
+    }));
+  };
   return (
     <div className="row">
       <div className={styles.App}>
@@ -168,7 +177,9 @@ function App() {
           {select}
           <Button clickHandler={handleAddNewEntry} text="+ Add New" />
         </div>
-        {showAddEntry && <AddNewEntry onClose={closeAddNewEntry} />}
+        {showAddEntry && (
+          <AddNewEntry onClose={closeAddNewEntry} AddEntryToData={AddEntryToData} />
+        )}
         {list}
         <SearchForm searchHandler={searchHandler} />
         <Pagination
@@ -178,6 +189,9 @@ function App() {
           pageSwitcher={pageSwitcher}
           totalPages={pagination.totalPages}
         />
+        <div className={styles.ActiveClicked}>
+          {activeEntry && <ActiveEntry entry={activeEntry} />}
+        </div>
       </div>
     </div>
   );

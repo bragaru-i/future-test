@@ -4,14 +4,16 @@ import Modal from '../UI/Modal/Modal';
 import Aux from '../../hoc/_Aux';
 import Input from '../UI/Input/Input';
 import Button from '../UI/Button/Button';
+import formValidate from '../../utils/formValidate';
 
-const AddNewEntry = ({ onClose }) => {
+const AddNewEntry = ({ onClose, AddEntryToData }) => {
+  const [isValid, setIsValid] = useState(false);
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
     phone: '',
     email: '',
-    id: '',
+    id: Math.floor(Math.random() * 100000),
   });
 
   const onChangeHandler = (e) => {
@@ -19,8 +21,21 @@ const AddNewEntry = ({ onClose }) => {
     const { name, value } = e.target;
 
     setData((prevState) => ({ ...prevState, [name]: value }));
+    if (formValidate(data)) {
+      setIsValid(true);
+    } else {
+      setIsValid(false);
+    }
   };
 
+  const submit = (e) => {
+    e.preventDefault();
+    if (isValid) {
+      AddEntryToData(data);
+
+      onClose(e);
+    }
+  };
   return (
     <Aux>
       <Modal title="Add A New Entry" closeModal={onClose}>
@@ -67,12 +82,17 @@ const AddNewEntry = ({ onClose }) => {
               id="id"
               placeholder="ID"
               value={data.id}
-              inputOnChange={onChangeHandler}
+              disabled={true}
+              inputOnChange={() => {}}
             />
           </div>
 
           <div className="float-right">
-            <Button text="+Add New"></Button>
+            <Button
+              status={!isValid && 'disabled'}
+              clickHandler={submit}
+              text="+Add New"
+            ></Button>
           </div>
         </form>
       </Modal>
