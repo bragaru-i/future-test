@@ -37,7 +37,7 @@ function App() {
         : 'http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}';
     setData((prevState) => ({ ...prevState.data, isLoading: true }));
     axios
-      .get(dbUrl)
+      .get(`https://cors-anywhere.herokuapp.com/${dbUrl}`, )
       .then((res) => {
         setData((prevState) => ({
           ...prevState,
