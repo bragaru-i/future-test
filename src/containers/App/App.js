@@ -31,16 +31,18 @@ function App() {
   });
 
   useEffect(() => {
+    setActiveEntry(null);
+    setPagination((prevState) => ({ ...prevState, currentPage: 1 }));
     let dbUrl =
       selectDB === 'lessDB'
         ? 'http://www.filltext.com/?rows=32&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}'
         : 'http://www.filltext.com/?rows=1000&id={number|1000}&firstName={firstName}&delay=3&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}';
     setData((prevState) => ({ ...prevState.data, isLoading: true }));
-   axios({
-    method: 'get',
-    url:`https://cors-anywhere.herokuapp.com/${dbUrl}`,
-    headers: {'Origin': 'https://example.com'}
-})
+    axios({
+      method: 'get',
+      url: `https://cors-anywhere.herokuapp.com/${dbUrl}`,
+      headers: { Origin: 'https://example.com' },
+    })
       .then((res) => {
         setData((prevState) => ({
           ...prevState,
