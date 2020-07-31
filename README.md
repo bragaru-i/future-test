@@ -1,5 +1,7 @@
 ### App build with CRA template
 
+demo link: https://futureco-test.web.app/
+
 A simple app which consumes www.filltext.com.
 Tech used:
 
@@ -7,7 +9,7 @@ Tech used:
 - react hooks - no class components
 - axios - for easy http requests
 
-##Features
+## Features
 
 - using 2 api endpoints(LessDB and Full DB), on selecting - refetch the main app
 - sorting ascending or descending by column
